@@ -1,0 +1,52 @@
+Bootstrap: docker
+From: vllm/vllm-openai:{{ VLLM_VERSION }}
+
+%arguments
+    VLLM_VERSION=v0.8.5.post1
+
+%labels
+    org.opencontainers.image.title "vLLM for NVIDIA Volta / V100"
+    org.opencontainers.image.description "Pinned legacy vLLM profile for HPC benchmark on NVIDIA V100 (SM70)"
+    benchmark.engine "vllm"
+    benchmark.gpu_profile "volta-sm70"
+    benchmark.vllm.version "{{ VLLM_VERSION }}"
+
+%environment
+    # Keep models / caches outside the immutable SIF and bind them at runtime.
+    export HF_HOME=/cache/huggingface
+    export HUGGINGFACE_HUB_CACHE=/cache/huggingface/hub
+    export TRANSFORMERS_CACHE=/cache/huggingface/hub
+    export VLLM_CACHE_ROOT=/cache/vllm
+    export XDG_CACHE_HOME=/cache/xdg
+    export TOKENIZERS_PARALLELISM=true
+
+    # vLLM V1 in this generation targets newer GPUs; force the legacy engine on V100.
+    export VLLM_USE_V1=0
+
+    # Avoid accidental BF16 selection on Volta. Also pass --dtype float16 when serving.
+    export NVIDIA_TF32_OVERRIDE=0
+
+%post
+    mkdir -p /models /cache/huggingface/hub /cache/vllm /cache/xdg
+
+%test
+    python3 - <<'PY'
+import vllm
+print("vLLM:", vllm.__version__)
+PY
+
+%runscript
+    # Examples:
+    #   apptainer run --nv image.sif serve Qwen/Qwen2.5-7B-Instruct --dtype float16
+    #   apptainer run --nv image.sif bench throughput ...
+    exec vllm "$@"
+
+%help
+    Pinned vLLM container for NVIDIA V100 / SM70 benchmark work.
+
+    Runtime example:
+      apptainer run --nv \
+        --bind /path/to/cache:/cache \
+        --bind /path/to/models:/models:ro \
+        IMAGE.sif serve /models/MODEL \
+        --dtype float16 --host 0.0.0.0 --port 8000

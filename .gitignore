@@ -1,0 +1,46 @@
+# Secret & Environment Files
+.env
+*.env
+application_layer/onenode/.env
+
+# SQLite Databases & Local State
+*.db
+*.sqlite
+*.sqlite3
+application_layer/onenode/data/*.db
+
+# Python Caches & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+.eggs/
+dist/
+/build/
+.venv
+venv/
+env/
+ENV/
+
+# HPC & Container Artifacts
+*.sif
+*.simg
+infrastructure_layer/logs/*.out
+infrastructure_layer/logs/*.err
+infrastructure_layer/build/*.sif
+!infrastructure_layer/logs/.gitkeep
+
+# Model & Hugging Face Cache
+.cache/
+huggingface/
+vllm_cache/
+
+# OS & Editor Files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
