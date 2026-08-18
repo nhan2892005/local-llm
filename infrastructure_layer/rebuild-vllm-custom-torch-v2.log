@@ -1,0 +1,176 @@
+============================================================
+ vLLM CUSTOM TORCH BUILD v2
+============================================================
+sandbox=/home/u001013/llm_serving/build/vllm-gloo-nccl-patched.sandbox
+work=/home/u001013/llm_serving/build/vllm-custom
+src=/home/u001013/llm_serving/build/vllm-custom/vllm
+tag=v0.8.5.post1
+arch=7.0
+ccache=/home/u001013/llm_serving/build/vllm-custom/ccache
+
+Torch runtime CXX11 ABI = 1
+TorchConfig = /usr/local/lib/python3.12/dist-packages/torch/share/cmake/Torch/TorchConfig.cmake
+TorchConfig ABI line:   set(TORCH_CXX_FLAGS "-D_GLIBCXX_USE_CXX11_ABI=1")
+HEAD is now at 3015d56 [BugFix][Attention] Fix sliding window attention in V1 giving incorrect results (#17574)
+M	pyproject.toml
+M	requirements/build.txt
+M	requirements/cpu.txt
+M	requirements/cuda.txt
+M	requirements/docs.txt
+M	requirements/neuron.txt
+M	requirements/rocm-build.txt
+M	requirements/test.txt
+M	requirements/tpu.txt
+M	requirements/xpu.txt
+
+=== vLLM source ===
+v0.8.5.post1
+3015d5634e74d59704e2b39bab0dbe2e6f86a38a
+=== Torch visible to vLLM build ===
+torch = 2.6.0+cu124
+torch git = 2236df1770800ffea5697b11b0bb0d910b2e59e1
+cuda = 12.4
+CXX11 ABI = 1
+cmake prefix = /usr/local/lib/python3.12/dist-packages/torch/share/cmake
+
+=== prepare custom-Torch requirements ===
+>>> cleaning requirements/xpu.txt
+<<< done cleaning requirements/xpu.txt
+
+>>> cleaning requirements/build.txt
+<<< done cleaning requirements/build.txt
+
+>>> cleaning requirements/docs.txt
+<<< done cleaning requirements/docs.txt
+
+>>> cleaning requirements/rocm-test.txt
+<<< done cleaning requirements/rocm-test.txt
+
+>>> cleaning requirements/rocm-build.txt
+<<< done cleaning requirements/rocm-build.txt
+
+>>> cleaning requirements/rocm.txt
+<<< done cleaning requirements/rocm.txt
+
+>>> cleaning requirements/hpu.txt
+<<< done cleaning requirements/hpu.txt
+
+>>> cleaning requirements/cpu.txt
+<<< done cleaning requirements/cpu.txt
+
+>>> cleaning requirements/tpu.txt
+<<< done cleaning requirements/tpu.txt
+
+>>> cleaning requirements/lint.txt
+<<< done cleaning requirements/lint.txt
+
+>>> cleaning requirements/common.txt
+<<< done cleaning requirements/common.txt
+
+>>> cleaning requirements/nightly_torch_test.txt
+<<< done cleaning requirements/nightly_torch_test.txt
+
+>>> cleaning requirements/test.txt
+<<< done cleaning requirements/test.txt
+
+>>> cleaning requirements/neuron.txt
+<<< done cleaning requirements/neuron.txt
+
+>>> cleaning requirements/cuda.txt
+<<< done cleaning requirements/cuda.txt
+
+>>> cleaning requirements/dev.txt
+<<< done cleaning requirements/dev.txt
+
+>>> cleaning pyproject.toml
+<<< done cleaning pyproject.toml
+
+Requirement already satisfied: cmake>=3.26 in /usr/local/lib/python3.12/dist-packages (from -r requirements/build.txt (line 2)) (4.0.0)
+Requirement already satisfied: ninja in /usr/local/lib/python3.12/dist-packages (from -r requirements/build.txt (line 3)) (1.11.1.4)
+Requirement already satisfied: packaging in /usr/local/lib/python3.12/dist-packages (from -r requirements/build.txt (line 4)) (25.0)
+Requirement already satisfied: setuptools>=61 in /usr/local/lib/python3.12/dist-packages (from -r requirements/build.txt (line 5)) (80.1.0)
+Requirement already satisfied: setuptools-scm>=8 in /usr/local/lib/python3.12/dist-packages (from -r requirements/build.txt (line 6)) (8.3.1)
+Requirement already satisfied: wheel in /usr/local/lib/python3.12/dist-packages (from -r requirements/build.txt (line 7)) (0.45.1)
+Requirement already satisfied: jinja2>=3.1.6 in /usr/local/lib/python3.12/dist-packages (from -r requirements/build.txt (line 8)) (3.1.6)
+Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/dist-packages (from jinja2>=3.1.6->-r requirements/build.txt (line 8)) (3.0.2)
+
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+Collecting cmake==3.31.6
+  Downloading cmake-3.31.6-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.3 kB)
+Collecting ninja
+  Downloading ninja-1.13.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.1 kB)
+Downloading cmake-3.31.6-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (27.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 27.8/27.8 MB 10.7 MB/s  0:00:02
+Downloading ninja-1.13.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (180 kB)
+Installing collected packages: ninja, cmake
+  Attempting uninstall: ninja
+    Found existing installation: ninja 1.11.1.4
+    Not uninstalling ninja at /usr/local/lib/python3.12/dist-packages, outside environment /home/u001013/llm_serving/build/vllm-custom/venv
+    Can't uninstall 'ninja'. No files were found to uninstall.
+  Attempting uninstall: cmake
+    Found existing installation: cmake 4.0.0
+    Not uninstalling cmake at /usr/local/lib/python3.12/dist-packages, outside environment /home/u001013/llm_serving/build/vllm-custom/venv
+    Can't uninstall 'cmake'. No files were found to uninstall.
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+vllm 0.8.5.post1 requires torchvision==0.21.0, which is not installed.
+Successfully installed cmake-3.31.6 ninja-1.13.0
+
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+
+=== build environment ===
+Python 3.12.10
+cmake version 3.31.6
+Copyright (c) 2005-2024 NVIDIA Corporation
+Built on Thu_Mar_28_02:18:24_PDT_2024
+Cuda compilation tools, release 12.4, V12.4.131
+Build cuda_12.4.r12.4/compiler.34097967_0
+/usr/bin/ccache
+(environment) cache_dir = /home/u001013/llm_serving/build/vllm-custom/ccache
+(default) disable = false
+(environment) temporary_dir = /home/u001013/llm_serving/build/vllm-custom/ccache/tmp
+TORCH_CUDA_ARCH_LIST=7.0
+MAX_JOBS=8
+NVCC_THREADS=1
+
+=== build vLLM wheel ===
+Processing /home/u001013/llm_serving/build/vllm-custom/vllm
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: vllm
+  Building wheel for vllm (pyproject.toml): started
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): still running...
+  Building wheel for vllm (pyproject.toml): finished with status 'done'
+  Created wheel for vllm: filename=vllm-0.8.5.post2.dev0+g3015d56.d20260817-cp312-cp312-linux_x86_64.whl size=27862432 sha256=28008b95d577bf8f44a6b173f2a3c6974d5dae00296389a3417f3cafdd01e06c
+  Stored in directory: /tmp/pip-ephem-wheel-cache-l71fhvgi/wheels/dc/92/2d/fb2e839f14db89f714bb2ec0932a17d393122ca44643e7654a
+Successfully built vllm
+
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+
+=== resulting wheels ===
+-rw-r--r--. 1 u001013 u001013 27M Aug 17 20:23 /home/u001013/llm_serving/build/vllm-custom/wheelhouse/vllm-0.8.5.post2.dev0+g3015d56.d20260817-cp312-cp312-linux_x86_64.whl
+
+============================================================
+ VLLM BUILD COMPLETE
+============================================================
+/home/u001013/llm_serving/build/vllm-custom/wheelhouse/vllm-0.8.5.post2.dev0+g3015d56.d20260817-cp312-cp312-linux_x86_64.whl

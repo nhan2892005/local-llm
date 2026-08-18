@@ -1,0 +1,47 @@
+/usr/local/lib/python3.12/dist-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+INFO 08-18 12:39:06 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform
+Namespace(backend='openai-chat', base_url='http://10.1.1.238:50380', host='127.0.0.1', port=8000, endpoint='/v1/chat/completions', dataset_name='random', dataset_path=None, max_concurrency=2, model='/home/u001013/.cache/llm-serving/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31', tokenizer='/home/u001013/.cache/llm-serving/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31', use_beam_search=False, num_prompts=24, logprobs=None, request_rate=inf, burstiness=1.0, seed=0, trust_remote_code=False, disable_tqdm=False, profile=False, save_result=True, save_detailed=True, append_result=False, metadata=['case=03_concurrency_c2_i512_o128', 'input_len=512', 'output_len=128', 'serving_run_id=20260818-111259-1292391', 'tp=4', 'pp=2', 'gpu=V100-SXM2-32GB'], result_dir='/home/u001013/llm_serving/benchmarks/results/20260818-123509/03_concurrency_c2_i512_o128', result_filename='client.json', ignore_eos=True, percentile_metrics='ttft,tpot,itl,e2el', metric_percentiles='50,90,95,99', goodput=None, sonnet_input_len=550, sonnet_output_len=150, sonnet_prefix_len=200, sharegpt_output_len=None, random_input_len=512, random_output_len=128, random_range_ratio=0.0, random_prefix_len=0, hf_subset=None, hf_split=None, hf_output_len=None, top_p=None, top_k=None, min_p=None, temperature=None, tokenizer_mode='auto', served_model_name='qwen2.5-72b', lora_modules=None)
+Starting initial single prompt test run...
+Initial test run completed. Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: 2
+  0%|          | 0/24 [00:00<?, ?it/s]  4%|▍         | 1/24 [00:10<03:51, 10.05s/it]  8%|▊         | 2/24 [00:10<01:32,  4.20s/it] 12%|█▎        | 3/24 [00:20<02:23,  6.85s/it] 17%|█▋        | 4/24 [00:20<01:23,  4.19s/it] 21%|██        | 5/24 [00:30<01:59,  6.27s/it] 25%|██▌       | 6/24 [00:30<01:15,  4.18s/it] 29%|██▉       | 7/24 [00:40<01:43,  6.07s/it] 33%|███▎      | 8/24 [00:40<01:06,  4.17s/it] 38%|███▊      | 9/24 [00:50<01:29,  5.99s/it] 42%|████▏     | 10/24 [00:50<00:58,  4.18s/it] 46%|████▌     | 11/24 [01:00<01:17,  5.96s/it] 50%|█████     | 12/24 [01:00<00:50,  4.18s/it] 54%|█████▍    | 13/24 [01:10<01:05,  5.94s/it] 58%|█████▊    | 14/24 [01:10<00:41,  4.18s/it] 62%|██████▎   | 15/24 [01:20<00:53,  5.94s/it] 67%|██████▋   | 16/24 [01:20<00:33,  4.18s/it] 71%|███████   | 17/24 [01:30<00:41,  5.95s/it] 75%|███████▌  | 18/24 [01:31<00:25,  4.19s/it] 79%|███████▉  | 19/24 [01:41<00:29,  5.94s/it] 83%|████████▎ | 20/24 [01:41<00:16,  4.19s/it] 88%|████████▊ | 21/24 [01:51<00:17,  5.95s/it] 92%|█████████▏| 22/24 [01:51<00:08,  4.20s/it] 96%|█████████▌| 23/24 [02:01<00:05,  5.95s/it]100%|██████████| 24/24 [02:01<00:00,  4.19s/it]100%|██████████| 24/24 [02:01<00:00,  5.06s/it]
+============ Serving Benchmark Result ============
+Successful requests:                     24        
+Benchmark duration (s):                  121.42    
+Total input tokens:                      12288     
+Total generated tokens:                  3072      
+Request throughput (req/s):              0.20      
+Output token throughput (tok/s):         25.30     
+Total Token throughput (tok/s):          126.50    
+---------------Time to First Token----------------
+Mean TTFT (ms):                          551.21    
+Median TTFT (ms):                        575.56    
+P50 TTFT (ms):                           575.56    
+P90 TTFT (ms):                           715.62    
+P95 TTFT (ms):                           741.84    
+P99 TTFT (ms):                           748.19    
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          75.30     
+Median TPOT (ms):                        75.27     
+P50 TPOT (ms):                           75.27     
+P90 TPOT (ms):                           76.49     
+P95 TPOT (ms):                           76.56     
+P99 TPOT (ms):                           76.81     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           74.71     
+Median ITL (ms):                         74.19     
+P50 ITL (ms):                            74.19     
+P90 ITL (ms):                            75.04     
+P95 ITL (ms):                            75.26     
+P99 ITL (ms):                            76.12     
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          10113.80  
+Median E2EL (ms):                        10105.85  
+P50 E2EL (ms):                           10105.85  
+P90 E2EL (ms):                           10166.95  
+P95 E2EL (ms):                           10173.20  
+P99 E2EL (ms):                           10174.52  
+==================================================

@@ -1,0 +1,9 @@
+/usr/local/lib/python3.12/dist-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+INFO 08-18 11:40:26 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform
+Traceback (most recent call last):
+  File "/home/u001013/llm_serving/build/vllm-custom/vllm/benchmarks/benchmark_serving.py", line 53, in <module>
+    from benchmark_dataset import (AIMODataset, ASRDataset, BurstGPTDataset,
+  File "/home/u001013/llm_serving/build/vllm-custom/vllm/benchmarks/benchmark_dataset.py", line 30, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'

@@ -1,0 +1,18 @@
+2026-08-16 17:08:49,549	INFO usage_lib.py:441 -- Usage stats collection is disabled.
+2026-08-16 17:08:49,549	INFO scripts.py:971 -- Local node IP: 10.1.1.238
+2026-08-16 17:08:52,951	SUCC scripts.py:1007 -- --------------------
+2026-08-16 17:08:52,951	SUCC scripts.py:1008 -- Ray runtime started.
+2026-08-16 17:08:52,951	SUCC scripts.py:1009 -- --------------------
+2026-08-16 17:08:52,951	INFO scripts.py:1011 -- Next steps
+2026-08-16 17:08:52,951	INFO scripts.py:1014 -- To add another node to this Ray cluster, run
+2026-08-16 17:08:52,951	INFO scripts.py:1017 --   ray start --address='10.1.1.238:24662'
+2026-08-16 17:08:52,951	INFO scripts.py:1026 -- To connect to this Ray cluster:
+2026-08-16 17:08:52,951	INFO scripts.py:1028 -- import ray
+2026-08-16 17:08:52,951	INFO scripts.py:1029 -- ray.init(_node_ip_address='10.1.1.238')
+2026-08-16 17:08:52,951	INFO scripts.py:1060 -- To terminate the Ray runtime, run
+2026-08-16 17:08:52,951	INFO scripts.py:1061 --   ray stop
+2026-08-16 17:08:52,951	INFO scripts.py:1064 -- To view the status of the cluster, use
+2026-08-16 17:08:52,951	INFO scripts.py:1065 --   ray status
+2026-08-16 17:08:52,951	INFO scripts.py:1181 -- --block
+2026-08-16 17:08:52,951	INFO scripts.py:1182 -- This command will now block forever until terminated by a signal.
+2026-08-16 17:08:52,951	INFO scripts.py:1185 -- Running subprocesses are monitored and a message will be printed if any of them terminate unexpectedly. Subprocesses exit with SIGTERM will be treated as graceful, thus NOT reported.

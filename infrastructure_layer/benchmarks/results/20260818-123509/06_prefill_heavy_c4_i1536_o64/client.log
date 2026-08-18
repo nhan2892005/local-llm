@@ -1,0 +1,47 @@
+/usr/local/lib/python3.12/dist-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+INFO 08-18 12:46:29 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform
+Namespace(backend='openai-chat', base_url='http://10.1.1.238:50380', host='127.0.0.1', port=8000, endpoint='/v1/chat/completions', dataset_name='random', dataset_path=None, max_concurrency=4, model='/home/u001013/.cache/llm-serving/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31', tokenizer='/home/u001013/.cache/llm-serving/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31', use_beam_search=False, num_prompts=16, logprobs=None, request_rate=inf, burstiness=1.0, seed=0, trust_remote_code=False, disable_tqdm=False, profile=False, save_result=True, save_detailed=True, append_result=False, metadata=['case=06_prefill_heavy_c4_i1536_o64', 'input_len=1536', 'output_len=64', 'serving_run_id=20260818-111259-1292391', 'tp=4', 'pp=2', 'gpu=V100-SXM2-32GB'], result_dir='/home/u001013/llm_serving/benchmarks/results/20260818-123509/06_prefill_heavy_c4_i1536_o64', result_filename='client.json', ignore_eos=True, percentile_metrics='ttft,tpot,itl,e2el', metric_percentiles='50,90,95,99', goodput=None, sonnet_input_len=550, sonnet_output_len=150, sonnet_prefix_len=200, sharegpt_output_len=None, random_input_len=1536, random_output_len=64, random_range_ratio=0.0, random_prefix_len=0, hf_subset=None, hf_split=None, hf_output_len=None, top_p=None, top_k=None, min_p=None, temperature=None, tokenizer_mode='auto', served_model_name='qwen2.5-72b', lora_modules=None)
+Starting initial single prompt test run...
+Initial test run completed. Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: 4
+  0%|          | 0/16 [00:00<?, ?it/s]  6%|▋         | 1/16 [00:08<02:04,  8.31s/it] 19%|█▉        | 3/16 [00:08<00:28,  2.20s/it] 31%|███▏      | 5/16 [00:16<00:34,  3.18s/it] 44%|████▍     | 7/16 [00:16<00:16,  1.86s/it] 56%|█████▋    | 9/16 [00:25<00:19,  2.72s/it] 69%|██████▉   | 11/16 [00:25<00:08,  1.79s/it] 81%|████████▏ | 13/16 [00:33<00:07,  2.57s/it] 94%|█████████▍| 15/16 [00:33<00:01,  1.76s/it]100%|██████████| 16/16 [00:33<00:00,  2.10s/it]
+============ Serving Benchmark Result ============
+Successful requests:                     16        
+Benchmark duration (s):                  33.53     
+Total input tokens:                      24576     
+Total generated tokens:                  1024      
+Request throughput (req/s):              0.48      
+Output token throughput (tok/s):         30.54     
+Total Token throughput (tok/s):          763.44    
+---------------Time to First Token----------------
+Mean TTFT (ms):                          2062.91   
+Median TTFT (ms):                        2048.34   
+P50 TTFT (ms):                           2048.34   
+P90 TTFT (ms):                           3175.20   
+P95 TTFT (ms):                           3201.47   
+P99 TTFT (ms):                           3224.60   
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          100.08    
+Median TPOT (ms):                        100.11    
+P50 TPOT (ms):                           100.11    
+P90 TPOT (ms):                           117.17    
+P95 TPOT (ms):                           117.45    
+P99 TPOT (ms):                           117.86    
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           98.51     
+Median ITL (ms):                         82.80     
+P50 ITL (ms):                            82.80     
+P90 ITL (ms):                            83.84     
+P95 ITL (ms):                            84.17     
+P99 ITL (ms):                            914.89    
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          8367.74   
+Median E2EL (ms):                        8347.86   
+P50 E2EL (ms):                           8347.86   
+P90 E2EL (ms):                           8421.96   
+P95 E2EL (ms):                           8424.88   
+P99 E2EL (ms):                           8425.68   
+==================================================

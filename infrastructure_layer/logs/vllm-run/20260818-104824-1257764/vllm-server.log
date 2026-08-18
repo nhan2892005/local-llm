@@ -1,0 +1,893 @@
+/usr/local/lib/python3.12/dist-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+INFO 08-18 10:49:10 [__init__.py:239] Automatically detected platform cuda.
+INFO 08-18 10:49:19 [api_server.py:1043] vLLM API server version 0.8.5.post2.dev0+g3015d56.d20260817
+INFO 08-18 10:49:19 [api_server.py:1044] args: Namespace(subparser='serve', model_tag='/home/u001013/.cache/llm-serving/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31', config='', host='0.0.0.0', port=50380, uvicorn_log_level='info', disable_uvicorn_access_log=False, allow_credentials=False, allowed_origins=['*'], allowed_methods=['*'], allowed_headers=['*'], api_key=None, lora_modules=None, prompt_adapters=None, chat_template=None, chat_template_content_format='auto', response_role='assistant', ssl_keyfile=None, ssl_certfile=None, ssl_ca_certs=None, enable_ssl_refresh=False, ssl_cert_reqs=0, root_path=None, middleware=[], return_tokens_as_token_ids=False, disable_frontend_multiprocessing=False, enable_request_id_headers=False, enable_auto_tool_choice=False, tool_call_parser=None, tool_parser_plugin='', model='/home/u001013/.cache/llm-serving/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31', task='auto', tokenizer=None, hf_config_path=None, skip_tokenizer_init=False, revision=None, code_revision=None, tokenizer_revision=None, tokenizer_mode='auto', trust_remote_code=False, allowed_local_media_path=None, load_format='auto', download_dir=None, model_loader_extra_config={}, use_tqdm_on_load=True, config_format=<ConfigFormat.AUTO: 'auto'>, dtype='half', max_model_len=2048, guided_decoding_backend='xgrammar', reasoning_parser=None, logits_processor_pattern=None, model_impl='auto', distributed_executor_backend='ray', pipeline_parallel_size=2, tensor_parallel_size=4, data_parallel_size=1, enable_expert_parallel=False, max_parallel_loading_workers=None, ray_workers_use_nsight=False, disable_custom_all_reduce=True, block_size=None, gpu_memory_utilization=0.9, swap_space=4, kv_cache_dtype='auto', num_gpu_blocks_override=None, enable_prefix_caching=None, prefix_caching_hash_algo='builtin', cpu_offload_gb=0, calculate_kv_scales=False, disable_sliding_window=False, use_v2_block_manager=True, seed=None, max_logprobs=20, disable_log_stats=False, quantization=None, rope_scaling=None, rope_theta=None, hf_token=None, hf_overrides=None, enforce_eager=False, max_seq_len_to_capture=8192, tokenizer_pool_size=0, tokenizer_pool_type='ray', tokenizer_pool_extra_config={}, limit_mm_per_prompt={}, mm_processor_kwargs=None, disable_mm_preprocessor_cache=False, enable_lora=None, enable_lora_bias=False, max_loras=1, max_lora_rank=16, lora_extra_vocab_size=256, lora_dtype='auto', long_lora_scaling_factors=None, max_cpu_loras=None, fully_sharded_loras=False, enable_prompt_adapter=None, max_prompt_adapters=1, max_prompt_adapter_token=0, device='auto', speculative_config=None, ignore_patterns=[], served_model_name=['qwen2.5-72b'], qlora_adapter_name_or_path=None, show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, disable_async_output_proc=False, max_num_batched_tokens=None, max_num_seqs=4, max_num_partial_prefills=1, max_long_partial_prefills=1, long_prefill_token_threshold=0, num_lookahead_slots=0, scheduler_delay_factor=0.0, preemption_mode=None, num_scheduler_steps=1, multi_step_stream_outputs=True, scheduling_policy='fcfs', enable_chunked_prefill=None, disable_chunked_mm_input=False, scheduler_cls='vllm.core.scheduler.Scheduler', override_neuron_config=None, override_pooler_config=None, compilation_config=None, kv_transfer_config=None, worker_cls='auto', worker_extension_cls='', generation_config='vllm', override_generation_config=None, enable_sleep_mode=False, additional_config=None, enable_reasoning=False, disable_cascade_attn=False, disable_log_requests=False, max_log_len=None, disable_fastapi_docs=False, enable_prompt_tokens_details=False, enable_server_load_tracking=False, dispatch_function=<function ServeSubcommand.cmd at 0x7f41d3cef6a0>)
+WARNING 08-18 10:49:19 [config.py:2972] Casting torch.bfloat16 to torch.float16.
+INFO 08-18 10:49:30 [config.py:717] This model supports multiple tasks: {'classify', 'score', 'reward', 'generate', 'embed'}. Defaulting to 'generate'.
+INFO 08-18 10:49:30 [llm_engine.py:240] Initializing a V0 LLM engine (v0.8.5.post2.dev0+g3015d56.d20260817) with config: model='/home/u001013/.cache/llm-serving/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31', speculative_config=None, tokenizer='/home/u001013/.cache/llm-serving/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=2048, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=2, disable_custom_all_reduce=True, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=None, served_model_name=qwen2.5-72b, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=None, chunked_prefill_enabled=False, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[4,2,1],"max_capture_size":4}, use_cached_outputs=False, 
+2026-08-18 10:49:30,803	INFO worker.py:1554 -- Using address 10.1.1.238:50000 set in the environment variable RAY_ADDRESS
+2026-08-18 10:49:30,804	INFO worker.py:1694 -- Connecting to existing Ray cluster at address: 10.1.1.238:50000...
+2026-08-18 10:49:30,817	INFO worker.py:1888 -- Connected to Ray cluster.
+INFO 08-18 10:49:30 [ray_utils.py:335] No current placement group found. Creating a new placement group.
+INFO 08-18 10:49:31 [ray_distributed_executor.py:176] use_ray_spmd_worker: False
+[36m(pid=3160019)[0m /usr/local/lib/python3.12/dist-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+[36m(pid=3160019)[0m   warnings.warn(
+[36m(pid=3160019)[0m INFO 08-18 10:49:34 [__init__.py:239] Automatically detected platform cuda.
+[36m(pid=2497780, ip=10.1.1.236)[0m /usr/local/lib/python3.12/dist-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.[32m [repeated 5x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=2497780, ip=10.1.1.236)[0m   warnings.warn([32m [repeated 5x across cluster][0m
+[36m(pid=2497780, ip=10.1.1.236)[0m INFO 08-18 10:49:40 [__init__.py:239] Automatically detected platform cuda.[32m [repeated 5x across cluster][0m
+INFO 08-18 10:49:43 [ray_distributed_executor.py:352] non_carry_over_env_vars from config: set()
+INFO 08-18 10:49:43 [ray_distributed_executor.py:354] Copying the following environment variables to workers: ['VLLM_CACHE_ROOT', 'VLLM_PORT', 'VLLM_NCCL_SO_PATH', 'LD_LIBRARY_PATH', 'VLLM_USAGE_SOURCE', 'VLLM_ATTENTION_BACKEND', 'VLLM_WORKER_MULTIPROC_METHOD', 'VLLM_USE_V1']
+INFO 08-18 10:49:43 [ray_distributed_executor.py:357] If certain env vars should NOT be copied to workers, add them to /home/u001013/.config/vllm/ray_non_carry_over_env_vars.json file
+INFO 08-18 10:49:43 [cuda.py:228] Using XFormers backend.
+WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+    PyTorch 2.6.0+cu124 with CUDA 1204 (you have 2.6.0+cu124)
+    Python  3.12.8 (you have 3.12.10)
+  Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+  Memory-efficient attention, SwiGLU, sparse and more won't be available.
+  Set XFORMERS_MORE_DETAILS=1 for more details
+[36m(RayWorkerWrapper pid=3160033)[0m INFO 08-18 10:49:47 [cuda.py:228] Using XFormers backend.
+[36m(pid=2497778, ip=10.1.1.236)[0m INFO 08-18 10:49:41 [__init__.py:239] Automatically detected platform cuda.[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160033)[0m WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:
+[36m(RayWorkerWrapper pid=3160033)[0m     PyTorch 2.6.0+cu124 with CUDA 1204 (you have 2.6.0+cu124)
+[36m(RayWorkerWrapper pid=3160033)[0m     Python  3.12.8 (you have 3.12.10)
+[36m(RayWorkerWrapper pid=3160033)[0m   Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)
+[36m(RayWorkerWrapper pid=3160033)[0m   Memory-efficient attention, SwiGLU, sparse and more won't be available.
+[36m(RayWorkerWrapper pid=3160033)[0m   Set XFORMERS_MORE_DETAILS=1 for more details
+[36m(pid=2497778, ip=10.1.1.236)[0m /usr/local/lib/python3.12/dist-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.[32m [repeated 2x across cluster][0m
+[36m(pid=2497778, ip=10.1.1.236)[0m   warnings.warn([32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m INFO 08-18 10:49:52 [cuda.py:228] Using XFormers backend.[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m     PyTorch 2.6.0+cu124 with CUDA 1204 (you have 2.6.0+cu124)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m     Python  3.12.8 (you have 3.12.10)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m   Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m   Memory-efficient attention, SwiGLU, sparse and more won't be available.[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m   Set XFORMERS_MORE_DETAILS=1 for more details[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m [VLLM_GLOO_RANK_RANGE] rank=2/8 range=50450-50474
+[36m(RayWorkerWrapper pid=3160020)[0m [GLOO_PORT_RANGE] pid=3160020 bound listener port=50450 range=50450-50474
+[VLLM_GLOO_RANK_RANGE] rank=0/8 range=50400-50424
+[GLOO_PORT_RANGE] pid=3161365 bound listener port=50400 range=50400-50424
+[VLLM_GLOO_RANK_RANGE] rank=0/8 range=50400-50424
+[GLOO_PORT_RANGE] pid=3161365 bound listener port=50401 range=50400-50424
+[36m(RayWorkerWrapper pid=2497780, ip=10.1.1.236)[0m INFO 08-18 10:49:54 [utils.py:1045] Found nccl from environment variable VLLM_NCCL_SO_PATH=/home/u001013/llm_serving/build/torch-gloo-port/pytorch/build/nccl/lib/libnccl.so.2.21.5
+[36m(RayWorkerWrapper pid=2497780, ip=10.1.1.236)[0m INFO 08-18 10:49:54 [pynccl.py:69] vLLM is using nccl==2.21.5
+INFO 08-18 10:49:54 [utils.py:1045] Found nccl from environment variable VLLM_NCCL_SO_PATH=/home/u001013/llm_serving/build/torch-gloo-port/pytorch/build/nccl/lib/libnccl.so.2.21.5
+INFO 08-18 10:49:54 [pynccl.py:69] vLLM is using nccl==2.21.5
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_SOCKET_FAMILY set by environment to AF_INET
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to =ens11f0
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_SOCKET_IFNAME set to =ens11f0
+gpunode1:3161365:3161365 [0] NCCL INFO Bootstrap : Using ens11f0:10.1.1.238<0>
+gpunode1:3161365:3161365 [0] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+gpunode1:3161365:3161365 [0] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+gpunode1:3161365:3161365 [0] NCCL INFO NET/Plugin: Using internal network plugin.
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50600
+gpunode1:3161365:3161365 [0] NCCL INFO cudaDriverVersion 13000
+NCCL version 2.21.5+cuda12.4
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NCCL_SOCKET_FAMILY set by environment to AF_INET
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to =ens11f0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NCCL_SOCKET_IFNAME set to =ens11f0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Bootstrap : Using ens11f0:10.1.1.236<0>
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NET/Plugin: Using internal network plugin.
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50600
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO cudaDriverVersion 13000
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m NCCL version 2.21.5+cuda12.4
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_IB_DISABLE set by environment to 1.
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_SOCKET_FAMILY set by environment to AF_INET
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to =ens11f0
+gpunode1:3161365:3161365 [0] NCCL INFO NET/Socket : Using [0]ens11f0:10.1.1.238<0>
+gpunode1:3161365:3161365 [0] NCCL INFO Using non-device net plugin version 0
+gpunode1:3161365:3161365 [0] NCCL INFO Using network Socket
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50603
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50604
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50610
+gpunode1:3161365:3161365 [0] NCCL INFO ncclCommInitRank comm 0x12c66220 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 15000 commId 0x8f0049571c77aa6a - Init START
+gpunode1:3161365:3161365 [0] NCCL INFO NET/Socket : GPU Direct RDMA Disabled for HCA 0 'ens11f0'
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_CUMEM_ENABLE set by environment to 0.
+gpunode1:3161365:3161365 [0] NCCL INFO Setting affinity for GPU 0 to ff
+gpunode1:3161365:3161365 [0] NCCL INFO NVLS multicast support is not available on dev 0
+gpunode1:3161365:3161365 [0] NCCL INFO comm 0x12c66220 rank 0 nRanks 4 nNodes 1 localRanks 4 localRank 0 MNNVL 0
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 00/08 :    0   1   2   3
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 01/08 :    0   3   2   1
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 02/08 :    0   3   1   2
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 03/08 :    0   2   1   3
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 04/08 :    0   1   2   3
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 05/08 :    0   3   2   1
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 06/08 :    0   3   1   2
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 07/08 :    0   2   1   3
+gpunode1:3161365:3161365 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 3/-1/-1->0->-1 [2] 3/-1/-1->0->-1 [3] 2/-1/-1->0->-1 [4] 1/-1/-1->0->-1 [5] 3/-1/-1->0->-1 [6] 3/-1/-1->0->-1 [7] 2/-1/-1->0->-1
+gpunode1:3161365:3161365 [0] NCCL INFO P2P Chunksize set to 524288
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 0 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4004fd0
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 1 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005048
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 2 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae40050c0
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 3 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005138
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[1] via P2P/IPC
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy send connection 4 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae40051b0
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 04/0 : 0[0] -> 1[1] via P2P/IPC
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy send connection 5 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005228
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 6 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae40052a0
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 7 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005318
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 03/0 : 0[0] -> 2[2] via P2P/IPC
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy send connection 8 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005390
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 07/0 : 0[0] -> 2[2] via P2P/IPC
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy send connection 9 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005408
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 10 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005480
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 11 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae40054f8
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 01/0 : 0[0] -> 3[3] via P2P/IPC
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy send connection 12 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005570
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 02/0 : 0[0] -> 3[3] via P2P/IPC
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy send connection 13 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae40055e8
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 05/0 : 0[0] -> 3[3] via P2P/IPC
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy send connection 14 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005660
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 06/0 : 0[0] -> 3[3] via P2P/IPC
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy send connection 15 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae40056d8
+gpunode1:3161365:3161365 [0] NCCL INFO Connected all rings
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 16 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005750
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 17 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae40057c8
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 18 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005840
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 19 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae40058b8
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 20 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005930
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 21 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae40059a8
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 22 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005a20
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy recv connection 23 from local rank 0, transport 0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005a98
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NCCL_IB_DISABLE set by environment to 1.
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NET/Socket : Using [0]ens11f0:10.1.1.236<0>
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Using non-device net plugin version 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Using network Socket
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50601
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50602
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50608
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO ncclCommInitRank comm 0xef81e40 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 15000 commId 0xceacf176d6f0bb6e - Init START
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NET/Socket : GPU Direct RDMA Disabled for HCA 0 'ens11f0'
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NCCL_CUMEM_ENABLE set by environment to 0.
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Setting affinity for GPU 0 to ff
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO NVLS multicast support is not available on dev 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO comm 0xef81e40 rank 0 nRanks 4 nNodes 1 localRanks 4 localRank 0 MNNVL 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 00/08 :    0   1   2   3
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 01/08 :    0   3   2   1
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 02/08 :    0   3   1   2
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 03/08 :    0   2   1   3
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 04/08 :    0   1   2   3
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 05/08 :    0   3   2   1
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 06/08 :    0   3   1   2
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 07/08 :    0   2   1   3
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 3/-1/-1->0->-1 [2] 3/-1/-1->0->-1 [3] 2/-1/-1->0->-1 [4] 1/-1/-1->0->-1 [5] 3/-1/-1->0->-1 [6] 3/-1/-1->0->-1 [7] 2/-1/-1->0->-1
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO P2P Chunksize set to 524288
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy recv connection 0 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd234004fd0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy recv connection 1 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd234005048
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy recv connection 2 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd2340050c0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy recv connection 3 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd234005138
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[1] via P2P/IPC
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy send connection 4 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd2340051b0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 04/0 : 0[0] -> 1[1] via P2P/IPC
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy send connection 5 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd234005228
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy recv connection 6 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd2340052a0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy recv connection 7 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd234005318
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 03/0 : 0[0] -> 2[2] via P2P/IPC
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy send connection 8 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd234005390
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 07/0 : 0[0] -> 2[2] via P2P/IPC
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy send connection 9 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd234005408
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy recv connection 10 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd234005480
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy recv connection 11 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd2340054f8
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 01/0 : 0[0] -> 3[3] via P2P/IPC
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy send connection 12 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd234005570
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 02/0 : 0[0] -> 3[3] via P2P/IPC
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy send connection 13 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd2340055e8
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 05/0 : 0[0] -> 3[3] via P2P/IPC
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy send connection 14 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd234005660
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Channel 06/0 : 0[0] -> 3[3] via P2P/IPC
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2498454 [0] NCCL INFO New proxy send connection 15 from local rank 0, transport 0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7fd2340056d8
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m gpunode3:2497781:2497781 [0] NCCL INFO Connected all rings
+gpunode1:3161365:3161365 [0] NCCL INFO Connected all trees
+gpunode1:3161365:3161365 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+gpunode1:3161365:3161365 [0] NCCL INFO 8 coll channels, 8 collnet channels, 0 nvls channels, 8 p2p channels, 2 p2p channels per peer
+[36m(RayWorkerWrapper pid=3160020)[0m gpunode1:3160020:3160020 [2] NCCL INFO Connected all trees
+[36m(RayWorkerWrapper pid=3160020)[0m gpunode1:3160020:3160020 [2] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+[36m(RayWorkerWrapper pid=3160020)[0m gpunode1:3160020:3160020 [2] NCCL INFO 8 coll channels, 8 collnet channels, 0 nvls channels, 8 p2p channels, 2 p2p channels per peer
+gpunode1:3161365:3162290 [0] NCCL INFO New proxy send connection 24 from local rank 0, transport 2
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1ae4005b10
+gpunode1:3161365:3161365 [0] NCCL INFO TUNER/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+gpunode1:3161365:3161365 [0] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+gpunode1:3161365:3161365 [0] NCCL INFO ncclCommInitRank comm 0x12c66220 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId 15000 commId 0x8f0049571c77aa6a - Init COMPLETE
+INFO 08-18 10:49:55 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_97788ed9'), local_subscribe_addr='ipc:///tmp/d0fe1e81-776f-486f-b4ef-b08b5ac520ef', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[VLLM_GLOO_RANK_RANGE] rank=0/8 range=50400-50424
+[GLOO_PORT_RANGE] pid=3161365 bound listener port=50402 range=50400-50424
+INFO 08-18 10:49:55 [utils.py:1045] Found nccl from environment variable VLLM_NCCL_SO_PATH=/home/u001013/llm_serving/build/torch-gloo-port/pytorch/build/nccl/lib/libnccl.so.2.21.5
+INFO 08-18 10:49:55 [pynccl.py:69] vLLM is using nccl==2.21.5
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50611
+gpunode1:3161365:3161365 [0] NCCL INFO Using non-device net plugin version 0
+gpunode1:3161365:3161365 [0] NCCL INFO Using network Socket
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50615
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50616
+gpunode1:3161365:3161365 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50622
+gpunode1:3161365:3161365 [0] NCCL INFO ncclCommInitRank comm 0x174b5270 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 15000 commId 0x68b59ad555cab61f - Init START
+gpunode1:3161365:3161365 [0] NCCL INFO NET/Socket : GPU Direct RDMA Disabled for HCA 0 'ens11f0'
+gpunode1:3161365:3161365 [0] NCCL INFO Setting affinity for GPU 0 to ff
+gpunode1:3161365:3161365 [0] NCCL INFO comm 0x174b5270 rank 0 nRanks 2 nNodes 2 localRanks 1 localRank 0 MNNVL 0
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 00/02 :    0   1
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 01/02 :    0   1
+gpunode1:3161365:3161365 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+gpunode1:3161365:3161365 [0] NCCL INFO P2P Chunksize set to 131072
+gpunode1:3161365:3162336 [0] NCCL INFO New proxy recv connection 0 from local rank 0, transport 2
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1a9c004f50
+gpunode1:3161365:3162336 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50621
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 00/0 : 1[0] -> 0[0] [receive] via NET/Socket/0
+gpunode1:3161365:3162336 [0] NCCL INFO New proxy recv connection 1 from local rank 0, transport 2
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1a9c004fc8
+gpunode1:3161365:3162336 [0] NCCL INFO NCCL_PORT_RANGE bound listener to port 50627
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 01/0 : 1[0] -> 0[0] [receive] via NET/Socket/0
+gpunode1:3161365:3162336 [0] NCCL INFO New proxy send connection 2 from local rank 0, transport 2
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1a9c005040
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[0] [send] via NET/Socket/0
+gpunode1:3161365:3162336 [0] NCCL INFO New proxy send connection 3 from local rank 0, transport 2
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1a9c0050b8
+gpunode1:3161365:3161365 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[0] [send] via NET/Socket/0
+gpunode1:3161365:3161365 [0] NCCL INFO Connected all rings
+gpunode1:3161365:3161365 [0] NCCL INFO Connected all trees
+gpunode1:3161365:3161365 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+gpunode1:3161365:3161365 [0] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+gpunode1:3161365:3162336 [0] NCCL INFO New proxy send connection 4 from local rank 0, transport 2
+gpunode1:3161365:3161365 [0] NCCL INFO Connected to proxy localRank 0 -> connection 0x7f1a9c005130
+[36m(RayWorkerWrapper pid=3160020)[0m gpunode1:3160020:3160020 [2] NCCL INFO TUNER/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so
+[36m(RayWorkerWrapper pid=3160020)[0m gpunode1:3160020:3160020 [2] NCCL INFO TUNER/Plugin: Using internal tuner plugin.
+[36m(RayWorkerWrapper pid=3160020)[0m gpunode1:3160020:3160020 [2] NCCL INFO ncclCommInitRank comm 0xdf66fa0 rank 2 nranks 4 cudaDev 2 nvmlDev 2 busId 3a000 commId 0x8f0049571c77aa6a - Init COMPLETE
+[36m(RayWorkerWrapper pid=3160020)[0m gpunode1:3160020:3160020 [2] NCCL INFO Channel 00/0 : 1[2] -> 0[2] [receive] via NET/Socket/0
+[36m(RayWorkerWrapper pid=3160020)[0m gpunode1:3160020:3160020 [2] NCCL INFO Channel 01/0 : 1[2] -> 0[2] [receive] via NET/Socket/0
+[36m(RayWorkerWrapper pid=3160020)[0m gpunode1:3160020:3160020 [2] NCCL INFO Channel 00/0 : 0[2] -> 1[2] [send] via NET/Socket/0
+[36m(RayWorkerWrapper pid=3160020)[0m gpunode1:3160020:3160020 [2] NCCL INFO Channel 01/0 : 0[2] -> 1[2] [send] via NET/Socket/0
+[36m(RayWorkerWrapper pid=2497781, ip=10.1.1.236)[0m INFO 08-18 10:49:55 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_b11416f2'), local_subscribe_addr='ipc:///tmp/aff42e03-5243-4385-a0cc-5dba5aa4938d', remote_subscribe_addr=None, remote_addr_ipv6=False)
+gpunode1:3161365:3161365 [0] NCCL INFO ncclCommInitRank comm 0x174b5270 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 15000 commId 0x68b59ad555cab61f - Init COMPLETE
+[VLLM_GLOO_RANK_RANGE] rank=0/8 range=50400-50424
+[GLOO_PORT_RANGE] pid=3161365 bound listener port=50403 range=50400-50424
+INFO 08-18 10:49:55 [parallel_state.py:1051] rank 0 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 0
+INFO 08-18 10:49:55 [model_runner.py:1108] Starting to load model /home/u001013/.cache/llm-serving/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31...
+[36m(RayWorkerWrapper pid=3160020)[0m INFO 08-18 10:49:55 [parallel_state.py:1051] rank 2 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 2
+[36m(RayWorkerWrapper pid=3160020)[0m INFO 08-18 10:49:55 [model_runner.py:1108] Starting to load model /home/u001013/.cache/llm-serving/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31...
+Loading safetensors checkpoint shards:   0% Completed | 0/37 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:   3% Completed | 1/37 [00:03<02:17,  3.83s/it]
+Loading safetensors checkpoint shards:   8% Completed | 3/37 [00:03<00:35,  1.04s/it]
+Loading safetensors checkpoint shards:  11% Completed | 4/37 [00:07<01:03,  1.94s/it]
+Loading safetensors checkpoint shards:  14% Completed | 5/37 [00:07<00:42,  1.34s/it]
+Loading safetensors checkpoint shards:  16% Completed | 6/37 [00:11<01:04,  2.08s/it]
+Loading safetensors checkpoint shards:  19% Completed | 7/37 [00:16<01:28,  2.95s/it]
+Loading safetensors checkpoint shards:  22% Completed | 8/37 [00:16<01:00,  2.08s/it]
+Loading safetensors checkpoint shards:  27% Completed | 10/37 [00:16<00:30,  1.13s/it]
+Loading safetensors checkpoint shards:  30% Completed | 11/37 [00:18<00:32,  1.23s/it]
+Loading safetensors checkpoint shards:  35% Completed | 13/37 [00:18<00:18,  1.33it/s]
+Loading safetensors checkpoint shards:  38% Completed | 14/37 [00:22<00:36,  1.57s/it]
+Loading safetensors checkpoint shards:  41% Completed | 15/37 [00:27<00:50,  2.32s/it]
+Loading safetensors checkpoint shards:  43% Completed | 16/37 [00:27<00:38,  1.86s/it]
+Loading safetensors checkpoint shards:  46% Completed | 17/37 [00:30<00:45,  2.26s/it]
+Loading safetensors checkpoint shards:  49% Completed | 18/37 [00:31<00:31,  1.66s/it]
+Loading safetensors checkpoint shards:  51% Completed | 19/37 [00:33<00:32,  1.78s/it]
+Loading safetensors checkpoint shards:  54% Completed | 20/37 [00:37<00:42,  2.49s/it]
+Loading safetensors checkpoint shards:  57% Completed | 21/37 [00:40<00:43,  2.75s/it]
+Loading safetensors checkpoint shards:  59% Completed | 22/37 [00:40<00:29,  1.98s/it]
+Loading safetensors checkpoint shards:  65% Completed | 24/37 [00:44<00:25,  1.92s/it]
+Loading safetensors checkpoint shards:  68% Completed | 25/37 [00:44<00:17,  1.49s/it]
+Loading safetensors checkpoint shards:  70% Completed | 26/37 [00:48<00:22,  2.03s/it]
+Loading safetensors checkpoint shards:  73% Completed | 27/37 [00:48<00:15,  1.52s/it]
+Loading safetensors checkpoint shards:  76% Completed | 28/37 [00:52<00:20,  2.24s/it]
+Loading safetensors checkpoint shards:  78% Completed | 29/37 [00:52<00:13,  1.65s/it]
+Loading safetensors checkpoint shards:  81% Completed | 30/37 [00:56<00:15,  2.15s/it]
+Loading safetensors checkpoint shards:  84% Completed | 31/37 [00:59<00:14,  2.45s/it]
+Loading safetensors checkpoint shards:  86% Completed | 32/37 [00:59<00:08,  1.77s/it]
+Loading safetensors checkpoint shards:  89% Completed | 33/37 [01:02<00:08,  2.20s/it]
+Loading safetensors checkpoint shards:  92% Completed | 34/37 [01:06<00:08,  2.72s/it]
+Loading safetensors checkpoint shards:  95% Completed | 35/37 [01:06<00:03,  1.95s/it]
+Loading safetensors checkpoint shards:  97% Completed | 36/37 [01:09<00:02,  2.30s/it]
+Loading safetensors checkpoint shards: 100% Completed | 37/37 [01:09<00:00,  1.64s/it]
+Loading safetensors checkpoint shards: 100% Completed | 37/37 [01:09<00:00,  1.89s/it]
+
+INFO 08-18 10:51:05 [loader.py:458] Loading weights took 69.97 seconds
+INFO 08-18 10:51:05 [model_runner.py:1140] Model loading took 16.9957 GiB and 70.150939 seconds
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m INFO 08-18 10:52:22 [loader.py:458] Loading weights took 147.56 seconds
+[36m(RayWorkerWrapper pid=2497780, ip=10.1.1.236)[0m INFO 08-18 10:49:52 [cuda.py:228] Using XFormers backend.[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m [VLLM_GLOO_RANK_RANGE] rank=7/8 range=50575-50599[32m [repeated 27x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m INFO 08-18 10:49:55 [utils.py:1045] Found nccl from environment variable VLLM_NCCL_SO_PATH=/home/u001013/llm_serving/build/torch-gloo-port/pytorch/build/nccl/lib/libnccl.so.2.21.5[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m INFO 08-18 10:49:55 [pynccl.py:69] vLLM is using nccl==2.21.5[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO NCCL_SOCKET_FAMILY set by environment to AF_INET[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO NCCL_SOCKET_IFNAME set by environment to =ens11f0[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO NCCL_SOCKET_IFNAME set to =ens11f0[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO Bootstrap : Using ens11f0:10.1.1.238<0>[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO NET/Plugin: Using internal network plugin.[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2498500 [3] NCCL INFO NCCL_PORT_RANGE bound listener to port 50625[32m [repeated 56x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO cudaDriverVersion 13000[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m NCCL version 2.21.5+cuda12.4[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO NCCL_IB_DISABLE set by environment to 1.[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO NET/Socket : Using [0]ens11f0:10.1.1.238<0>[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO Using non-device net plugin version 0[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO Using network Socket[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO ncclCommInitRank comm 0x12b52850 rank 1 nranks 2 cudaDev 3 nvmlDev 3 busId 3b000 commId 0x3f822689ebaac2e - Init START[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO NET/Socket : GPU Direct RDMA Disabled for HCA 0 'ens11f0'[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO NCCL_CUMEM_ENABLE set by environment to 0.[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO Setting affinity for GPU 3 to ff[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO NVLS multicast support is not available on dev 3[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO comm 0x12b52850 rank 1 nRanks 2 nNodes 2 localRanks 1 localRank 0 MNNVL 0[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m gpunode1:3160026:3160026 [3] NCCL INFO Channel 01/02 :    0   1[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO P2P Chunksize set to 131072[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2498500 [3] NCCL INFO New proxy recv connection 1 from local rank 0, transport 2[32m [repeated 110x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO Connected to proxy localRank 0 -> connection 0x7ef320005120[32m [repeated 242x across cluster][0m
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m gpunode3:2497778:2497778 [2] NCCL INFO Channel 06/0 : 2[2] -> 1[1] via P2P/IPC[32m [repeated 104x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2498500 [3] NCCL INFO New proxy send connection 4 from local rank 0, transport 2[32m [repeated 132x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO Connected all rings[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO Connected all trees[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO TUNER/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-tuner.so[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO TUNER/Plugin: Using internal tuner plugin.[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO ncclCommInitRank comm 0x12b52850 rank 1 nranks 2 cudaDev 3 nvmlDev 3 busId 3b000 commId 0x3f822689ebaac2e - Init COMPLETE[32m [repeated 13x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO Channel 01/0 : 0[3] -> 1[3] [receive] via NET/Socket/0[32m [repeated 12x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m gpunode3:2497779:2497779 [3] NCCL INFO Channel 01/0 : 1[3] -> 0[3] [send] via NET/Socket/0[32m [repeated 12x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m INFO 08-18 10:49:55 [parallel_state.py:1051] rank 7 in world size 8 is assigned as DP rank 0, PP rank 1, TP rank 3[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m INFO 08-18 10:49:55 [model_runner.py:1108] Starting to load model /home/u001013/.cache/llm-serving/huggingface/hub/models--Qwen--Qwen2.5-72B-Instruct/snapshots/495f39366efef23836d0cfae4fbe635880d2be31...[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m INFO 08-18 10:52:23 [model_runner.py:1140] Model loading took 16.9957 GiB and 147.738210 seconds
+[36m(RayWorkerWrapper pid=3160026)[0m INFO 08-18 10:52:24 [loader.py:458] Loading weights took 149.19 seconds[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=2497780, ip=10.1.1.236)[0m INFO 08-18 10:52:29 [model_runner.py:1140] Model loading took 16.9957 GiB and 147.944684 seconds[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620] Error executing method 'determine_num_available_blocks'. This might cause deadlock in distributed execution.
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620] Traceback (most recent call last):
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/worker_base.py", line 612, in execute_method
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return run_method(self, method, args, kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/utils.py", line 2456, in run_method
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return func(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return func(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/worker.py", line 249, in determine_num_available_blocks
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     self.model_runner.profile_run()
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return func(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1237, in profile_run
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     self._dummy_run(max_num_batched_tokens, max_num_seqs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1363, in _dummy_run
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     self.execute_model(model_input, kv_caches, intermediate_tensors)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return func(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1764, in execute_model
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     hidden_or_intermediate_states = model_executable(
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]                                     ^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return self._call_impl(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return forward_call(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen2.py", line 466, in forward
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     hidden_states = self.model(input_ids, positions, intermediate_tensors,
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/decorators.py", line 172, in __call__
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return self.forward(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen2.py", line 343, in forward
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     hidden_states, residual = layer(
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]                               ^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return self._call_impl(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return forward_call(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen2.py", line 242, in forward
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     hidden_states = self.self_attn(
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]                     ^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return self._call_impl(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return forward_call(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen2.py", line 176, in forward
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     attn_output = self.attn(q, k, v)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]                   ^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return self._call_impl(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return forward_call(*args, **kwargs)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/layer.py", line 233, in forward
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return torch.ops.vllm.unified_attention(
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1123, in __call__
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return self._op(*args, **(kwargs or {}))
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/layer.py", line 379, in unified_attention
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     output = self.impl.forward(self, query, key, value, kv_cache,
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/backends/xformers.py", line 563, in forward
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     out = self._run_memory_efficient_xformers_forward(
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/backends/xformers.py", line 736, in _run_memory_efficient_xformers_forward
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     out = xops.memory_efficient_attention_forward(
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/__init__.py", line 376, in memory_efficient_attention_forward
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return _memory_efficient_attention_forward(
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/__init__.py", line 486, in _memory_efficient_attention_forward
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     op = _dispatch_fw(inp, False)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]          ^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/dispatch.py", line 135, in _dispatch_fw
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     return _run_priority_list(
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/dispatch.py", line 76, in _run_priority_list
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     raise NotImplementedError(msg)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620] NotImplementedError: No operator found for `memory_efficient_attention_forward` with inputs:
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]      query       : shape=(1, 2048, 2, 8, 128) (torch.float16)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]      key         : shape=(1, 2048, 2, 8, 128) (torch.float16)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]      value       : shape=(1, 2048, 2, 8, 128) (torch.float16)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]      attn_bias   : <class 'xformers.ops.fmha.attn_bias.BlockDiagonalCausalMask'>
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]      p           : 0.0
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620] `fa3F@0.0.0` is not supported because:
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     xFormers wasn't build with CUDA support
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     requires device with capability > (9, 0) but your GPU has capability (7, 0) (too old)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     operator wasn't built - see `python -m xformers.info` for more info
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620] `fa2F@v2.5.7-pt` is not supported because:
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     xFormers wasn't build with CUDA support
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     requires device with capability > (8, 0) but your GPU has capability (7, 0) (too old)
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620] `cutlassF-pt` is not supported because:
+[36m(RayWorkerWrapper pid=2497778, ip=10.1.1.236)[0m ERROR 08-18 10:52:32 [worker_base.py:620]     xFormers wasn't build with CUDA support
+ERROR 08-18 10:52:41 [worker_base.py:620] Error executing method 'determine_num_available_blocks'. This might cause deadlock in distributed execution.
+ERROR 08-18 10:52:41 [worker_base.py:620] Traceback (most recent call last):
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/worker_base.py", line 612, in execute_method
+ERROR 08-18 10:52:41 [worker_base.py:620]     return run_method(self, method, args, kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/utils.py", line 2456, in run_method
+ERROR 08-18 10:52:41 [worker_base.py:620]     return func(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+ERROR 08-18 10:52:41 [worker_base.py:620]     return func(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/worker.py", line 249, in determine_num_available_blocks
+ERROR 08-18 10:52:41 [worker_base.py:620]     self.model_runner.profile_run()
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+ERROR 08-18 10:52:41 [worker_base.py:620]     return func(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1237, in profile_run
+ERROR 08-18 10:52:41 [worker_base.py:620]     self._dummy_run(max_num_batched_tokens, max_num_seqs)
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1363, in _dummy_run
+ERROR 08-18 10:52:41 [worker_base.py:620]     self.execute_model(model_input, kv_caches, intermediate_tensors)
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+ERROR 08-18 10:52:41 [worker_base.py:620]     return func(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1764, in execute_model
+ERROR 08-18 10:52:41 [worker_base.py:620]     hidden_or_intermediate_states = model_executable(
+ERROR 08-18 10:52:41 [worker_base.py:620]                                     ^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+ERROR 08-18 10:52:41 [worker_base.py:620]     return self._call_impl(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+ERROR 08-18 10:52:41 [worker_base.py:620]     return forward_call(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen2.py", line 466, in forward
+ERROR 08-18 10:52:41 [worker_base.py:620]     hidden_states = self.model(input_ids, positions, intermediate_tensors,
+ERROR 08-18 10:52:41 [worker_base.py:620]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/decorators.py", line 172, in __call__
+ERROR 08-18 10:52:41 [worker_base.py:620]     return self.forward(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen2.py", line 343, in forward
+ERROR 08-18 10:52:41 [worker_base.py:620]     hidden_states, residual = layer(
+ERROR 08-18 10:52:41 [worker_base.py:620]                               ^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+ERROR 08-18 10:52:41 [worker_base.py:620]     return self._call_impl(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+ERROR 08-18 10:52:41 [worker_base.py:620]     return forward_call(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen2.py", line 242, in forward
+ERROR 08-18 10:52:41 [worker_base.py:620]     hidden_states = self.self_attn(
+ERROR 08-18 10:52:41 [worker_base.py:620]                     ^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+ERROR 08-18 10:52:41 [worker_base.py:620]     return self._call_impl(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+ERROR 08-18 10:52:41 [worker_base.py:620]     return forward_call(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen2.py", line 176, in forward
+ERROR 08-18 10:52:41 [worker_base.py:620]     attn_output = self.attn(q, k, v)
+ERROR 08-18 10:52:41 [worker_base.py:620]                   ^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+ERROR 08-18 10:52:41 [worker_base.py:620]     return self._call_impl(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+ERROR 08-18 10:52:41 [worker_base.py:620]     return forward_call(*args, **kwargs)
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/layer.py", line 233, in forward
+ERROR 08-18 10:52:41 [worker_base.py:620]     return torch.ops.vllm.unified_attention(
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1123, in __call__
+ERROR 08-18 10:52:41 [worker_base.py:620]     return self._op(*args, **(kwargs or {}))
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/layer.py", line 379, in unified_attention
+ERROR 08-18 10:52:41 [worker_base.py:620]     output = self.impl.forward(self, query, key, value, kv_cache,
+ERROR 08-18 10:52:41 [worker_base.py:620]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/backends/xformers.py", line 563, in forward
+ERROR 08-18 10:52:41 [worker_base.py:620]     out = self._run_memory_efficient_xformers_forward(
+ERROR 08-18 10:52:41 [worker_base.py:620]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/backends/xformers.py", line 736, in _run_memory_efficient_xformers_forward
+ERROR 08-18 10:52:41 [worker_base.py:620]     out = xops.memory_efficient_attention_forward(
+ERROR 08-18 10:52:41 [worker_base.py:620]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/__init__.py", line 376, in memory_efficient_attention_forward
+ERROR 08-18 10:52:41 [worker_base.py:620]     return _memory_efficient_attention_forward(
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/__init__.py", line 486, in _memory_efficient_attention_forward
+ERROR 08-18 10:52:41 [worker_base.py:620]     op = _dispatch_fw(inp, False)
+ERROR 08-18 10:52:41 [worker_base.py:620]          ^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/dispatch.py", line 135, in _dispatch_fw
+ERROR 08-18 10:52:41 [worker_base.py:620]     return _run_priority_list(
+ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^
+ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/dispatch.py", line 76, in _run_priority_list
+ERROR 08-18 10:52:41 [worker_base.py:620]     raise NotImplementedError(msg)
+ERROR 08-18 10:52:41 [worker_base.py:620] NotImplementedError: No operator found for `memory_efficient_attention_forward` with inputs:
+ERROR 08-18 10:52:41 [worker_base.py:620]      query       : shape=(1, 2048, 2, 8, 128) (torch.float16)
+ERROR 08-18 10:52:41 [worker_base.py:620]      key         : shape=(1, 2048, 2, 8, 128) (torch.float16)
+ERROR 08-18 10:52:41 [worker_base.py:620]      value       : shape=(1, 2048, 2, 8, 128) (torch.float16)
+ERROR 08-18 10:52:41 [worker_base.py:620]      attn_bias   : <class 'xformers.ops.fmha.attn_bias.BlockDiagonalCausalMask'>
+ERROR 08-18 10:52:41 [worker_base.py:620]      p           : 0.0
+ERROR 08-18 10:52:41 [worker_base.py:620] `fa3F@0.0.0` is not supported because:
+ERROR 08-18 10:52:41 [worker_base.py:620]     xFormers wasn't build with CUDA support
+ERROR 08-18 10:52:41 [worker_base.py:620]     requires device with capability > (9, 0) but your GPU has capability (7, 0) (too old)
+ERROR 08-18 10:52:41 [worker_base.py:620]     operator wasn't built - see `python -m xformers.info` for more info
+ERROR 08-18 10:52:41 [worker_base.py:620] `fa2F@v2.5.7-pt` is not supported because:
+ERROR 08-18 10:52:41 [worker_base.py:620]     xFormers wasn't build with CUDA support
+ERROR 08-18 10:52:41 [worker_base.py:620]     requires device with capability > (8, 0) but your GPU has capability (7, 0) (too old)
+ERROR 08-18 10:52:41 [worker_base.py:620] `cutlassF-pt` is not supported because:
+ERROR 08-18 10:52:41 [worker_base.py:620]     xFormers wasn't build with CUDA support
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/usr/local/bin/vllm", line 8, in <module>
+[rank0]:     sys.exit(main())
+[rank0]:              ^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 53, in main
+[rank0]:     args.dispatch_function(args)
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 27, in cmd
+[rank0]:     uvloop.run(run_server(args))
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 109, in run
+[rank0]:     return __asyncio.run(
+[rank0]:            ^^^^^^^^^^^^^^
+[rank0]:   File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+[rank0]:     return runner.run(main)
+[rank0]:            ^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+[rank0]:     return self._loop.run_until_complete(task)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 61, in wrapper
+[rank0]:     return await main
+[rank0]:            ^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 1078, in run_server
+[rank0]:     async with build_async_engine_client(args) as engine_client:
+[rank0]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+[rank0]:     return await anext(self.gen)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 146, in build_async_engine_client
+[rank0]:     async with build_async_engine_client_from_engine_args(
+[rank0]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+[rank0]:     return await anext(self.gen)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 194, in build_async_engine_client_from_engine_args
+[rank0]:     engine_client = AsyncLLMEngine.from_vllm_config(
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/engine/async_llm_engine.py", line 657, in from_vllm_config
+[rank0]:     return cls(
+[rank0]:            ^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/engine/async_llm_engine.py", line 612, in __init__
+[rank0]:     self.engine = self._engine_class(*args, **kwargs)
+[rank0]:                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/engine/async_llm_engine.py", line 267, in __init__
+[rank0]:     super().__init__(*args, **kwargs)
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/engine/llm_engine.py", line 278, in __init__
+[rank0]:     self._initialize_kv_caches()
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/engine/llm_engine.py", line 422, in _initialize_kv_caches
+[rank0]:     self.model_executor.determine_num_available_blocks())
+[rank0]:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/executor/executor_base.py", line 103, in determine_num_available_blocks
+[rank0]:     results = self.collective_rpc("determine_num_available_blocks")
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/executor/executor_base.py", line 331, in collective_rpc
+[rank0]:     return self._run_workers(method, *args, **(kwargs or {}))
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/executor/ray_distributed_executor.py", line 516, in _run_workers
+[rank0]:     self.driver_worker.execute_method(sent_method, *args, **kwargs)
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/worker_base.py", line 621, in execute_method
+[rank0]:     raise e
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/worker_base.py", line 612, in execute_method
+[rank0]:     return run_method(self, method, args, kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/utils.py", line 2456, in run_method
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/worker.py", line 249, in determine_num_available_blocks
+[rank0]:     self.model_runner.profile_run()
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1237, in profile_run
+[rank0]:     self._dummy_run(max_num_batched_tokens, max_num_seqs)
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1363, in _dummy_run
+[rank0]:     self.execute_model(model_input, kv_caches, intermediate_tensors)
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1764, in execute_model
+[rank0]:     hidden_or_intermediate_states = model_executable(
+[rank0]:                                     ^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen2.py", line 466, in forward
+[rank0]:     hidden_states = self.model(input_ids, positions, intermediate_tensors,
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/decorators.py", line 172, in __call__
+[rank0]:     return self.forward(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen2.py", line 343, in forward
+[rank0]:     hidden_states, residual = layer(
+[rank0]:                               ^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen2.py", line 242, in forward
+[rank0]:     hidden_states = self.self_attn(
+[rank0]:                     ^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen2.py", line 176, in forward
+[rank0]:     attn_output = self.attn(q, k, v)
+[rank0]:                   ^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/layer.py", line 233, in forward
+[rank0]:     return torch.ops.vllm.unified_attention(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1123, in __call__
+[rank0]:     return self._op(*args, **(kwargs or {}))
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/layer.py", line 379, in unified_attention
+[rank0]:     output = self.impl.forward(self, query, key, value, kv_cache,
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/backends/xformers.py", line 563, in forward
+[rank0]:     out = self._run_memory_efficient_xformers_forward(
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/backends/xformers.py", line 736, in _run_memory_efficient_xformers_forward
+[rank0]:     out = xops.memory_efficient_attention_forward(
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/__init__.py", line 376, in memory_efficient_attention_forward
+[rank0]:     return _memory_efficient_attention_forward(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/__init__.py", line 486, in _memory_efficient_attention_forward
+[rank0]:     op = _dispatch_fw(inp, False)
+[rank0]:          ^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/dispatch.py", line 135, in _dispatch_fw
+[rank0]:     return _run_priority_list(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/dispatch.py", line 76, in _run_priority_list
+[rank0]:     raise NotImplementedError(msg)
+[rank0]: NotImplementedError: No operator found for `memory_efficient_attention_forward` with inputs:
+[rank0]:      query       : shape=(1, 2048, 2, 8, 128) (torch.float16)
+[rank0]:      key         : shape=(1, 2048, 2, 8, 128) (torch.float16)
+[rank0]:      value       : shape=(1, 2048, 2, 8, 128) (torch.float16)
+[rank0]:      attn_bias   : <class 'xformers.ops.fmha.attn_bias.BlockDiagonalCausalMask'>
+[rank0]:      p           : 0.0
+[rank0]: `fa3F@0.0.0` is not supported because:
+[rank0]:     xFormers wasn't build with CUDA support
+[rank0]:     requires device with capability > (9, 0) but your GPU has capability (7, 0) (too old)
+[rank0]:     operator wasn't built - see `python -m xformers.info` for more info
+[rank0]: `fa2F@v2.5.7-pt` is not supported because:
+[rank0]:     xFormers wasn't build with CUDA support
+[rank0]:     requires device with capability > (8, 0) but your GPU has capability (7, 0) (too old)
+[rank0]: `cutlassF-pt` is not supported because:
+[rank0]:     xFormers wasn't build with CUDA support
+[36m(RayWorkerWrapper pid=3160033)[0m INFO 08-18 10:52:32 [model_runner.py:1140] Model loading took 16.9957 GiB and 149.543148 seconds[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620] Error executing method 'determine_num_available_blocks'. This might cause deadlock in distributed execution.[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620] Traceback (most recent call last):[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/worker_base.py", line 612, in execute_method[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return run_method(self, method, args, kwargs)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/utils.py", line 2456, in run_method[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return func(*args, **kwargs)[32m [repeated 16x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^[32m [repeated 16x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context[32m [repeated 12x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/worker.py", line 249, in determine_num_available_blocks[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     self.model_runner.profile_run()[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1237, in profile_run[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     self._dummy_run(max_num_batched_tokens, max_num_seqs)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1363, in _dummy_run[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     self.execute_model(model_input, kv_caches, intermediate_tensors)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1764, in execute_model[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     hidden_or_intermediate_states = model_executable([32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]                                     ^^^^^^^^^^^^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl[32m [repeated 16x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return self._call_impl(*args, **kwargs)[32m [repeated 16x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 16x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl[32m [repeated 16x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return forward_call(*args, **kwargs)[32m [repeated 16x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 20x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/backends/xformers.py", line 563, in forward[32m [repeated 24x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     hidden_states = self.model(input_ids, positions, intermediate_tensors,[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1123, in __call__[32m [repeated 8x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return self.forward(*args, **kwargs)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     hidden_states, residual = layer([32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]                               ^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     hidden_states = self.self_attn([32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]                     ^^^^^^^^^^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     attn_output = self.attn(q, k, v)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]                   ^^^^^^^^^^^^^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return torch.ops.vllm.unified_attention([32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 8x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return self._op(*args, **(kwargs or {}))[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/layer.py", line 379, in unified_attention[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     output = self.impl.forward(self, query, key, value, kv_cache,[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     out = self._run_memory_efficient_xformers_forward([32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/backends/xformers.py", line 736, in _run_memory_efficient_xformers_forward[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     out = xops.memory_efficient_attention_forward([32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/__init__.py", line 376, in memory_efficient_attention_forward[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return _memory_efficient_attention_forward([32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/__init__.py", line 486, in _memory_efficient_attention_forward[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     op = _dispatch_fw(inp, False)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]          ^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/dispatch.py", line 135, in _dispatch_fw[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return _run_priority_list([32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/dispatch.py", line 76, in _run_priority_list[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     raise NotImplementedError(msg)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620] NotImplementedError: No operator found for `memory_efficient_attention_forward` with inputs:[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]      query       : shape=(1, 2048, 2, 8, 128) (torch.float16)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]      key         : shape=(1, 2048, 2, 8, 128) (torch.float16)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]      value       : shape=(1, 2048, 2, 8, 128) (torch.float16)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]      attn_bias   : <class 'xformers.ops.fmha.attn_bias.BlockDiagonalCausalMask'>[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]      p           : 0.0[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620] `fa2F@v2.5.7-pt` is not supported because:[32m [repeated 8x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     xFormers wasn't build with CUDA support[32m [repeated 12x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     requires device with capability > (8, 0) but your GPU has capability (7, 0) (too old)[32m [repeated 8x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     operator wasn't built - see `python -m xformers.info` for more info[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160020)[0m ERROR 08-18 10:52:41 [worker_base.py:620] `cutlassF-pt` is not supported because:[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620] Error executing method 'determine_num_available_blocks'. This might cause deadlock in distributed execution.[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620] Traceback (most recent call last):[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/worker_base.py", line 612, in execute_method[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return run_method(self, method, args, kwargs)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/utils.py", line 2456, in run_method[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return func(*args, **kwargs)[32m [repeated 8x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^[32m [repeated 8x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/worker.py", line 249, in determine_num_available_blocks[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     self.model_runner.profile_run()[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1237, in profile_run[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     self._dummy_run(max_num_batched_tokens, max_num_seqs)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1363, in _dummy_run[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     self.execute_model(model_input, kv_caches, intermediate_tensors)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/worker/model_runner.py", line 1764, in execute_model[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     hidden_or_intermediate_states = model_executable([32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]                                     ^^^^^^^^^^^^^^^^^[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl[32m [repeated 8x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return self._call_impl(*args, **kwargs)[32m [repeated 8x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 8x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl[32m [repeated 8x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return forward_call(*args, **kwargs)[32m [repeated 8x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 10x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/backends/xformers.py", line 563, in forward[32m [repeated 12x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     hidden_states = self.model(input_ids, positions, intermediate_tensors,[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1123, in __call__[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return self.forward(*args, **kwargs)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     hidden_states, residual = layer([32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]                               ^^^^^^[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     hidden_states = self.self_attn([32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]                     ^^^^^^^^^^^^^^^[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     attn_output = self.attn(q, k, v)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]                   ^^^^^^^^^^^^^^^^^^[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return torch.ops.vllm.unified_attention([32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return self._op(*args, **(kwargs or {}))[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/layer.py", line 379, in unified_attention[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     output = self.impl.forward(self, query, key, value, kv_cache,[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     out = self._run_memory_efficient_xformers_forward([32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/vllm/attention/backends/xformers.py", line 736, in _run_memory_efficient_xformers_forward[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     out = xops.memory_efficient_attention_forward([32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/__init__.py", line 376, in memory_efficient_attention_forward[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return _memory_efficient_attention_forward([32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/__init__.py", line 486, in _memory_efficient_attention_forward[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     op = _dispatch_fw(inp, False)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]          ^^^^^^^^^^^^^^^^^^^^^^^^[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/dispatch.py", line 135, in _dispatch_fw[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     return _run_priority_list([32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]            ^^^^^^^^^^^^^^^^^^^[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]   File "/usr/local/lib/python3.12/dist-packages/xformers/ops/fmha/dispatch.py", line 76, in _run_priority_list[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     raise NotImplementedError(msg)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620] NotImplementedError: No operator found for `memory_efficient_attention_forward` with inputs:[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]      query       : shape=(1, 2048, 2, 8, 128) (torch.float16)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]      key         : shape=(1, 2048, 2, 8, 128) (torch.float16)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]      value       : shape=(1, 2048, 2, 8, 128) (torch.float16)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]      attn_bias   : <class 'xformers.ops.fmha.attn_bias.BlockDiagonalCausalMask'>[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]      p           : 0.0[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620] `fa2F@v2.5.7-pt` is not supported because:[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     xFormers wasn't build with CUDA support[32m [repeated 6x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     requires device with capability > (8, 0) but your GPU has capability (7, 0) (too old)[32m [repeated 4x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620]     operator wasn't built - see `python -m xformers.info` for more info[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=3160026)[0m ERROR 08-18 10:52:41 [worker_base.py:620] `cutlassF-pt` is not supported because:[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=2497780, ip=10.1.1.236)[0m WARNING[XFORMERS]: xFormers can't load C++/CUDA extensions. xFormers was built for:[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=2497780, ip=10.1.1.236)[0m     PyTorch 2.6.0+cu124 with CUDA 1204 (you have 2.6.0+cu124)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=2497780, ip=10.1.1.236)[0m     Python  3.12.8 (you have 3.12.10)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=2497780, ip=10.1.1.236)[0m   Please reinstall xformers (see https://github.com/facebookresearch/xformers#installing-xformers)[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=2497780, ip=10.1.1.236)[0m   Memory-efficient attention, SwiGLU, sparse and more won't be available.[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=2497780, ip=10.1.1.236)[0m   Set XFORMERS_MORE_DETAILS=1 for more details[32m [repeated 2x across cluster][0m
+[36m(RayWorkerWrapper pid=2497779, ip=10.1.1.236)[0m [GLOO_PORT_RANGE] pid=2497779 bound listener port=50578 range=50575-50599[32m [repeated 27x across cluster][0m
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[rank0]:[W818 10:52:42.460374648 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

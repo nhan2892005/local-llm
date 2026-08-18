@@ -1,0 +1,9 @@
+INFO 08-18 11:44:07 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform
+python = 3.12.10 (main, Apr  9 2025, 08:55:05) [GCC 11.4.0]
+torch = 2.6.0+cu124
+torch_git = 2236df1770800ffea5697b11b0bb0d910b2e59e1
+torch_abi = 1
+cuda = 12.4
+vllm = 0.8.5.post2.dev0+g3015d56.d20260817
+xformers = 0.0.30+1298453c.d20260818
+ray = 2.45.0
